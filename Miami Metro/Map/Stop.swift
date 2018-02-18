@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 class Stop: NSObject, MKAnnotation {
-    let coordinate: CLLocationCoordinate2D
+    dynamic var coordinate: CLLocationCoordinate2D
     let id: String
     let color: UIColor
     let kind: Route.Kind
@@ -29,6 +29,16 @@ class StopAnnotation: MKAnnotationView {
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         guard let annotation = annotation as? Stop else { return }
+        
+        self.frame.size = CGSize(width: 6, height: 6)
+        self.backgroundColor = UIColor.white
+        self.layer.cornerRadius = 3
+        self.layer.borderWidth = 1
+        self.layer.borderColor = annotation.color.cgColor
+        self.bounds = self.frame
+        self.isOpaque = false
+        self.layer.zPosition = 0.1
+        self.centerOffset = CGPoint(x: 0, y: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {
