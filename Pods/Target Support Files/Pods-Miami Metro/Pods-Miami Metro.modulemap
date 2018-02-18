@@ -1,0 +1,6 @@
+framework module Pods_Miami_Metro {
+  umbrella header "Pods-Miami Metro-umbrella.h"
+
+  export *
+  module * { export * }
+}

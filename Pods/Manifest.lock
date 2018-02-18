@@ -1,0 +1,52 @@
+PODS:
+  - Alamofire (4.6.0)
+  - AlamofireSwiftyJSON (1.0.1):
+    - Alamofire (~> 4.0)
+    - SwiftyJSON (~> 4.0)
+  - PinLayout (1.5.6)
+  - Polyline (4.2.0)
+  - PromiseKit (4.5.1):
+    - PromiseKit/Foundation (= 4.5.1)
+    - PromiseKit/QuartzCore (= 4.5.1)
+    - PromiseKit/UIKit (= 4.5.1)
+  - PromiseKit/CoreLocation (4.5.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/CorePromise (4.5.1)
+  - PromiseKit/Foundation (4.5.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.5.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.5.1):
+    - PromiseKit/CorePromise
+  - RxCocoa (4.1.1):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.1.1)
+  - SwiftyJSON (4.0.0)
+  - UIColor_Hex_Swift (4.0.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireSwiftyJSON
+  - PinLayout
+  - Polyline (~> 4.0)
+  - PromiseKit
+  - PromiseKit/CoreLocation
+  - RxCocoa
+  - RxSwift
+  - SwiftyJSON
+  - UIColor_Hex_Swift
+
+SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  AlamofireSwiftyJSON: ad896b68b586aea5de8ddba641ad3b402b8d5511
+  PinLayout: f7d1dc9a64c351cd9fc46293e5ed6c4172971ca4
+  Polyline: 3d69f75bb136357e27291d439d0436c6ebda57a4
+  PromiseKit: 445dac9b2c3c3b4b31b5f842bc325700b848a8bd
+  RxCocoa: fd0862fd2df95fa55562ad28ffd2522c25eb4a85
+  RxSwift: c6e3b1c7b325c7d121cd4327e9d98b7ed746b570
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  UIColor_Hex_Swift: c5ff88470499383b8fd85302d59344bb24ba9436
+
+PODFILE CHECKSUM: ad573e3e02b6a2cc2508980fa99ac7102c7181a0
+
+COCOAPODS: 1.4.0.rc.1
