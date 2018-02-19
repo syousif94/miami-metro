@@ -9,27 +9,65 @@
 import UIKit
 import MapKit
 import PinLayout
+import RxSwift
 
 class MapViewController: UIViewController {
     let mapView = MKMapView()
     var displayLink: CADisplayLink?
     
+    let bag = DisposeBag()
+    let stopViewController = StopViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        views()
-        configure()
+        addControllers()
+        addViews()
+        setupViews()
     }
     
-    func views() {
+    func addControllers() {
+        addChildViewController(stopViewController)
+    }
+    
+    func addViews() {
         view.addSubview(mapView)
+        view.addSubview(stopViewController.view)
     }
     
-    func configure() {
+    func setupViews() {
         mapView.pin.all()
         mapView.delegate = self
         mapView.isRotateEnabled = false
         mapView.isPitchEnabled = false
+        
+        let top = UIScreen.insets.top + 10
+        let height: CGFloat = 100
+        
+        let translateY = -(top + height)
+        
+        stopViewController.view.pin.horizontally(20).top(top).height(100)
+        stopViewController.view.transform = CGAffineTransform(translationX: 0, y: translateY)
+        
+        HudModel.shared.selectedStop.asObservable()
+            .scan((nil, nil)) { stops, stop -> (Stop?, Stop?) in
+                return (stops.1, stop)
+            }
+            .subscribe(onNext: { stops in
+                let last = stops.0
+                let current = stops.1
+                
+                let show = last == nil && current != nil
+                let hide = last != nil && current == nil
+                
+                if show || hide {
+                    let y: CGFloat = show ? 0 : translateY
+                    UIView.animate(withDuration: 0.2) { [unowned self] in
+                        self.stopViewController.view.transform = CGAffineTransform(translationX: 0, y: y)
+                    }
+                }
+                
+            }).disposed(by: bag)
         
         let center = CLLocationCoordinate2D(latitude: 25.769281912440562, longitude: -80.218781669048795)
         let span = MKCoordinateSpan(latitudeDelta: 0.10407172945630805, longitudeDelta: 0.059041752313689244)
@@ -85,12 +123,14 @@ extension MapViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        guard let annotation = view.annotation as? Stop else { return }
-        view.backgroundColor = annotation.color
+        guard let stop = view.annotation as? Stop else { return }
+        view.backgroundColor = stop.color
+        HudModel.select(stop: stop)
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         guard let _ = view.annotation as? Stop else { return }
         view.backgroundColor = UIColor.white
+        HudModel.deselect()
     }
 }

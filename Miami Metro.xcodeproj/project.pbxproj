@@ -13,6 +13,9 @@
 		5346E109202D6F0C00E08AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5346E108202D6F0C00E08AF4 /* AppDelegate.swift */; };
 		5346E110202D6F0C00E08AF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5346E10F202D6F0C00E08AF4 /* Assets.xcassets */; };
 		5346E113202D6F0C00E08AF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5346E111202D6F0C00E08AF4 /* LaunchScreen.storyboard */; };
+		53627292203A6EB800252693 /* HudModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53627291203A6EB800252693 /* HudModel.swift */; };
+		53627294203A6F1700252693 /* StopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53627293203A6F1700252693 /* StopViewController.swift */; };
+		53627296203A7DBD00252693 /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53627295203A7DBD00252693 /* UIScreen.swift */; };
 		5394B13E203909F900E70EBB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394B13D203909F900E70EBB /* MapViewController.swift */; };
 		5394B14020390B7900E70EBB /* MapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394B13F20390B7900E70EBB /* MapData.swift */; };
 		E26201D1402AF3DFFD7F215C /* Pods_Miami_Metro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8D8B856501CA3051D4578 /* Pods_Miami_Metro.framework */; };
@@ -30,6 +33,9 @@
 		5346E10F202D6F0C00E08AF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5346E112202D6F0C00E08AF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5346E114202D6F0C00E08AF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53627291203A6EB800252693 /* HudModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudModel.swift; sourceTree = "<group>"; };
+		53627293203A6F1700252693 /* StopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopViewController.swift; sourceTree = "<group>"; };
+		53627295203A7DBD00252693 /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
 		5394B13D203909F900E70EBB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5394B13F20390B7900E70EBB /* MapData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,12 +91,23 @@
 			isa = PBXGroup;
 			children = (
 				5346E108202D6F0C00E08AF4 /* AppDelegate.swift */,
+				53627295203A7DBD00252693 /* UIScreen.swift */,
+				53627290203A6E4B00252693 /* Hud */,
 				5394B13C2039098300E70EBB /* Map */,
 				5346E10F202D6F0C00E08AF4 /* Assets.xcassets */,
 				5346E111202D6F0C00E08AF4 /* LaunchScreen.storyboard */,
 				5346E114202D6F0C00E08AF4 /* Info.plist */,
 			);
 			path = "Miami Metro";
+			sourceTree = "<group>";
+		};
+		53627290203A6E4B00252693 /* Hud */ = {
+			isa = PBXGroup;
+			children = (
+				53627291203A6EB800252693 /* HudModel.swift */,
+				53627293203A6F1700252693 /* StopViewController.swift */,
+			);
+			path = Hud;
 			sourceTree = "<group>";
 		};
 		5394B13C2039098300E70EBB /* Map */ = {
@@ -254,7 +271,10 @@
 				5303018D20392A4900808004 /* Line.swift in Sources */,
 				5303018F20392A7000808004 /* Stop.swift in Sources */,
 				5394B14020390B7900E70EBB /* MapData.swift in Sources */,
+				53627294203A6F1700252693 /* StopViewController.swift in Sources */,
 				5346E109202D6F0C00E08AF4 /* AppDelegate.swift in Sources */,
+				53627292203A6EB800252693 /* HudModel.swift in Sources */,
+				53627296203A7DBD00252693 /* UIScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
