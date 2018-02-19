@@ -45,26 +45,8 @@ class MapViewController: UIViewController {
         }
     }
     
-    @objc func update() {
-        let delta = CGFloat(mapView.region.span.longitudeDelta)
-        if delta > 0.04 || delta < 0.01 {
-            return
-        }
-        let diameter: CGFloat = 6 + (15 * (0.04 - delta) / 0.03)
-        let radius: CGFloat = diameter / 2
-        
-        let firstAnnotation = mapView.annotations.first { annotation -> Bool in
-            return mapView.view(for: annotation) is StopAnnotation
-        }
-        if firstAnnotation == nil { return }
-        if mapView.view(for: firstAnnotation!)!.frame.size.height == diameter { return }
-        let stops = mapView.annotations.map { mapView.view(for: $0) }
-        for view in stops {
-            if let view = view as? StopAnnotation {
-                view.frame.size = CGSize(width: diameter, height: diameter)
-                view.layer.cornerRadius = radius
-            }
-        }
+    @objc func updateRegion() {
+        StopAnnotation.resize(for: mapView)
     }
 }
 
@@ -86,11 +68,15 @@ extension MapViewController: MKMapViewDelegate {
             return nil
         }
         
-        return StopAnnotation(annotation: annotation, reuseIdentifier: "stop")
+        let annotation = StopAnnotation(annotation: annotation, reuseIdentifier: "stop")
+        StopAnnotation.size(annotation, for: mapView)
+        annotation.layoutIfNeeded()
+        return annotation
+        
     }
     
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-        displayLink = CADisplayLink(target: self, selector: #selector(update))
+        displayLink = CADisplayLink(target: self, selector: #selector(updateRegion))
         displayLink?.add(to: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
     }
     
