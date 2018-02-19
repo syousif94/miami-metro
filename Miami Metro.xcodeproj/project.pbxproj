@@ -16,8 +16,10 @@
 		53627292203A6EB800252693 /* HudModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53627291203A6EB800252693 /* HudModel.swift */; };
 		53627294203A6F1700252693 /* StopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53627293203A6F1700252693 /* StopViewController.swift */; };
 		53627296203A7DBD00252693 /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53627295203A7DBD00252693 /* UIScreen.swift */; };
+		53627298203AA09A00252693 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53627297203AA09A00252693 /* Route.swift */; };
 		5394B13E203909F900E70EBB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394B13D203909F900E70EBB /* MapViewController.swift */; };
 		5394B14020390B7900E70EBB /* MapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394B13F20390B7900E70EBB /* MapData.swift */; };
+		53BF6567203B920000397809 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF6566203B920000397809 /* Vehicle.swift */; };
 		E26201D1402AF3DFFD7F215C /* Pods_Miami_Metro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8D8B856501CA3051D4578 /* Pods_Miami_Metro.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,8 +38,10 @@
 		53627291203A6EB800252693 /* HudModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudModel.swift; sourceTree = "<group>"; };
 		53627293203A6F1700252693 /* StopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopViewController.swift; sourceTree = "<group>"; };
 		53627295203A7DBD00252693 /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
+		53627297203AA09A00252693 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		5394B13D203909F900E70EBB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5394B13F20390B7900E70EBB /* MapData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapData.swift; sourceTree = "<group>"; };
+		53BF6566203B920000397809 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +120,10 @@
 				5303018A203927C000808004 /* map.json */,
 				5394B13D203909F900E70EBB /* MapViewController.swift */,
 				5394B13F20390B7900E70EBB /* MapData.swift */,
+				53627297203AA09A00252693 /* Route.swift */,
 				5303018C20392A4900808004 /* Line.swift */,
 				5303018E20392A7000808004 /* Stop.swift */,
+				53BF6566203B920000397809 /* Vehicle.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -267,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53627298203AA09A00252693 /* Route.swift in Sources */,
 				5394B13E203909F900E70EBB /* MapViewController.swift in Sources */,
 				5303018D20392A4900808004 /* Line.swift in Sources */,
 				5303018F20392A7000808004 /* Stop.swift in Sources */,
@@ -274,6 +281,7 @@
 				53627294203A6F1700252693 /* StopViewController.swift in Sources */,
 				5346E109202D6F0C00E08AF4 /* AppDelegate.swift in Sources */,
 				53627292203A6EB800252693 /* HudModel.swift in Sources */,
+				53BF6567203B920000397809 /* Vehicle.swift in Sources */,
 				53627296203A7DBD00252693 /* UIScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

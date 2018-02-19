@@ -41,12 +41,12 @@ class MapViewController: UIViewController {
         mapView.isRotateEnabled = false
         mapView.isPitchEnabled = false
         
-        let top = UIScreen.insets.top + 10
+        let top = UIScreen.insets.top + 5
         let height: CGFloat = 100
         
         let translateY = -(top + height)
         
-        stopViewController.view.pin.horizontally(20).top(top).height(100)
+        stopViewController.view.pin.horizontally(15).top(top).height(100)
         stopViewController.view.transform = CGAffineTransform(translationX: 0, y: translateY)
         
         HudModel.shared.selectedStop.asObservable()
@@ -56,6 +56,10 @@ class MapViewController: UIViewController {
             .subscribe(onNext: { stops in
                 let last = stops.0
                 let current = stops.1
+                
+                if last == current { return }
+                
+                self.stopViewController.refresh(stop: current)
                 
                 let show = last == nil && current != nil
                 let hide = last != nil && current == nil

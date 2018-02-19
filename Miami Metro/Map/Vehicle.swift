@@ -1,33 +1,36 @@
 //
-//  Stop.swift
+//  Vehicle.swift
 //  Miami Metro
 //
-//  Created by Sammy Yousif on 2/17/18.
+//  Created by Sammy Yousif on 2/19/18.
 //  Copyright © 2018 Sammy Yousif. All rights reserved.
 //
 
 import UIKit
 import MapKit
+import SwiftyJSON
 
-class Stop: NSObject, MKAnnotation {
+class Vehicle: NSObject, MKAnnotation {
     dynamic var coordinate: CLLocationCoordinate2D
     let id: String
-    let name: String
-    let color: UIColor
     let kind: Route.Kind
-    let route: String?
+    let route: String
+    let direction: String?;
+    let bearing: String?;
     
-    init(_ coordinate: CLLocationCoordinate2D, id: String, name: String, color: UIColor, kind: Route.Kind, route: String? = nil) {
-        self.coordinate = coordinate
-        self.id = id
-        self.name = name
-        self.color = color
-        self.kind = kind
-        self.route = route
+    init(_ json: JSON) {
+        self.kind = Route.Kind(rawValue: json["kind"].stringValue)!
+        let lat = json["lat"].doubleValue
+        let lng = json["lng"].doubleValue
+        self.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+        self.id = json["id"].stringValue
+        self.route = json["route"].stringValue
+        self.direction = json["direction"].string
+        self.bearing = json["bearing"].string
     }
 }
 
-class StopAnnotation: MKAnnotationView {
+class VehicleAnnotation: MKAnnotationView {
     
     static let minDelta: CGFloat = 0.005
     static let maxDelta: CGFloat = 0.04
@@ -98,3 +101,4 @@ class StopAnnotation: MKAnnotationView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+

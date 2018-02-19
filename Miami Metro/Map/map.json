@@ -2,7 +2,7 @@
   {
     "type": "rail",
     "ids": ["GRN", "ORG"],
-    "name": "Rail",
+    "name": "MetroRail",
     "poly": {
       "GRN":
         "gov|Cz|giNSe[AwDDoBXqBzAyH^{BHgABuA@gTHiBT{A`@uAfCuF`CgF`BkEjBuFh@sBPgBDqBIkCi@gJEqDAeF?wTBuG?aMAqMAiDOwBk@gCgAmE]{BI{CUyVIyDOwC[gEIiFQaQU_TGoBa@_Cw@qBk@aAaEgEyD}DuAgB}@mBi@qC}@_JQoCKqJO_NSgROiMOcPSiQQcPMsLDgC\\uCt@aC~@eB`BgBnBmAnEkAxDUpHKbLO~QYvHMdMSfHMpLYfMU`OS`PSvLQdKMxDEjBOjBe@nBgAfAiAr@eAz@gBl@{CX{DD_F?wJCmLQ{VEgGKsNS_SMsKBsBj@}Dh@uA~@wArAqAvBeAlB_@dCKbNSzGKjFGzKOxBCfDDfEL|A@fDCbKQpNUhKIlGErNIhBItBe@|As@rAiAbB}BvE_H|AoCl@cCRmCAy@GqAyAgROyCEaHHsEJcFA{BGeH?eBNoBz@aD`AeBzAwAhBaAhBa@lCKlKMdIO|FKbKOnFIpAEvEc@dDQdHM~DEdHEfEEfFIfDCtJArA?hBJdC`@xDzAtB|ApB`ClHpLfFxIrF|IlC`E~DlGxKpQvAdC~@~B`CfI~CnLlAhEdD~LjIh[bFlRdGpU|HhZzGrWnArFbAbErC|JlAdE~B|IrGrVpHjYbAzCdAbClBzCdLfOnFbHhJ`MtCpDnB`CrKpNvKvNjGfIrHzJnJdMbNxQfCtDnBjClGxHtBpCbEnF`JvL~LfPlHrJxB`DzB~C~FxH`BpBzAfBxAlBjJ~L`JtLpI|KjIxKbJtLbCbDnDxE|K|NfBjCfGbItD`FvEhGhF`HvFrHfD~DlArAlB|ApBpApCfArErAoAg@kAi@uDgA{AeAoBeBsCaD}BmCsGsIsFmH}CqDcD_EuG{IsBcDoDeFcHeJaD}DaBqBqDyEsKoNgKeN}ImLkJaMmFaHoD{EqFgHyEqGoKgNkLqO_KyMmC}DyI}KcEmFuEkGmPmTgIuKmIwKcIoKoKkNoDyEeF_H{JsMgF_H{FqH}CiE}AgCmA{CmAiEaEqOwEsQgF_SaA_EiAsEwCoKgCmJmFqSqDgNeFwRgF{RgFyRiFaScD}LwAuFaFiR_AgDuA_D{CiFyHiMwGqKiFuI_CyDwDmGqEoHwBmDkA{AsAkAyBqA}Bw@eCe@yBOmD?mJ?gCDsDJsELeCBeEDsHHwCFwDRoETcHLsKLqITqFHiJLiCH{B`@yBfAiBjBeArBk@fCOlCHlJ?|CK`GGnEFtGHpCjAxONjCA|Bg@xCcA`CgFtHqBrCiAbAcBz@qBd@mBHuNH_MHkEFuMRkMR{BB}DGsFM}C@yJL_CDuB?eC?iIH_ILkBDuBV{Bz@wAfAsAjBeArC]vC?|CLtKTbSH|LCfF@pEJfODpK?nGAzIElDS|Bc@tBu@hB{AnB{AhAeDhAaCPaJJgJL}JNkMN_MNsKR}IR{JReOVmJLaJNiKPaLL{CD_DPcC\\aCz@yB`BwAjBiAnCm@`EEpCP~MLnLR|RRhRNbNNbORvQFzFJbCj@dG`@pDZzAz@pBrAfBvDzD|DfE|@tAr@tBZhCFnDTnULrKD`DJdC^jERdDHvGLzOFfDF`B\\vBpA`F\\xBFzC?rS?fPAlN@zK@`BLfDZdGT`E?`CUfC{@bDkEbMoFdLg@|A[vBG|BA`PAtCGvA]`CmBpJ[~BCx@@zBBjCDrF",
@@ -177,6 +177,7 @@
   {
     "type": "mover",
     "ids": ["OMN", "BKL", "INN", "OTR"],
+    "name": "MetroMover",
     "names": ["Omni", "Brickell", "Inner Loop", "Outer Loop"],
     "poly": {
       "BKL":
@@ -347,6 +348,7 @@
   {
     "type": "gables",
     "ids": ["1", "2"],
+    "name": "Coral Gables",
     "names": ["Coral Gables Trolley Route", "Grand Ave"],
     "poly": {
       "1":
