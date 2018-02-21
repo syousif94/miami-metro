@@ -11,6 +11,10 @@ import MapKit
 import PinLayout
 import RxSwift
 
+protocol AnnotationDelegate: class {
+    var mapView: MKMapView { get }
+}
+
 class MapViewController: UIViewController, AnnotationDelegate {
     let mapView = MKMapView()
     var displayLink: CADisplayLink?
@@ -109,6 +113,10 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation is MKUserLocation {
+            mapView.userLocation.title = nil
+        }
 
         if annotation is Stop {
             let view = StopView(annotation: annotation, reuseIdentifier: "stop")
@@ -137,14 +145,22 @@ extension MapViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        guard let stop = view.annotation as? Stop else { return }
-        view.backgroundColor = stop.color
-        HudModel.select(stop: stop)
+        if view.annotation is MKUserLocation {
+            view.setSelected(false, animated: false)
+        }
+        
+        if let view = view as? StopView {
+            view.backgroundColor = view.stop.color
+            view.idLabel.textColor = UIColor.white
+            HudModel.select(stop: view.stop)
+        }
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        guard let _ = view.annotation as? Stop else { return }
-        view.backgroundColor = UIColor.white
-        HudModel.deselect()
+        if let view = view as? StopView {
+            view.idLabel.textColor = UIColor.black
+            view.backgroundColor = UIColor.white
+            HudModel.deselect()
+        }
     }
 }

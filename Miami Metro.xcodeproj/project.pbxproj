@@ -13,6 +13,8 @@
 		5346E109202D6F0C00E08AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5346E108202D6F0C00E08AF4 /* AppDelegate.swift */; };
 		5346E110202D6F0C00E08AF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5346E10F202D6F0C00E08AF4 /* Assets.xcassets */; };
 		5346E113202D6F0C00E08AF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5346E111202D6F0C00E08AF4 /* LaunchScreen.storyboard */; };
+		535839B8203D684F00073E80 /* StopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535839B7203D684F00073E80 /* StopView.swift */; };
+		535839BA203D690600073E80 /* VehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535839B9203D690600073E80 /* VehicleView.swift */; };
 		53627292203A6EB800252693 /* HudModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53627291203A6EB800252693 /* HudModel.swift */; };
 		53627294203A6F1700252693 /* StopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53627293203A6F1700252693 /* StopViewController.swift */; };
 		53627296203A7DBD00252693 /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53627295203A7DBD00252693 /* UIScreen.swift */; };
@@ -35,6 +37,8 @@
 		5346E10F202D6F0C00E08AF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5346E112202D6F0C00E08AF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5346E114202D6F0C00E08AF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		535839B7203D684F00073E80 /* StopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopView.swift; sourceTree = "<group>"; };
+		535839B9203D690600073E80 /* VehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleView.swift; sourceTree = "<group>"; };
 		53627291203A6EB800252693 /* HudModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudModel.swift; sourceTree = "<group>"; };
 		53627293203A6F1700252693 /* StopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopViewController.swift; sourceTree = "<group>"; };
 		53627295203A7DBD00252693 /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
@@ -123,7 +127,9 @@
 				53627297203AA09A00252693 /* Route.swift */,
 				5303018C20392A4900808004 /* Line.swift */,
 				5303018E20392A7000808004 /* Stop.swift */,
+				535839B7203D684F00073E80 /* StopView.swift */,
 				53BF6566203B920000397809 /* Vehicle.swift */,
+				535839B9203D690600073E80 /* VehicleView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -277,8 +283,10 @@
 				5394B13E203909F900E70EBB /* MapViewController.swift in Sources */,
 				5303018D20392A4900808004 /* Line.swift in Sources */,
 				5303018F20392A7000808004 /* Stop.swift in Sources */,
+				535839B8203D684F00073E80 /* StopView.swift in Sources */,
 				5394B14020390B7900E70EBB /* MapData.swift in Sources */,
 				53627294203A6F1700252693 /* StopViewController.swift in Sources */,
+				535839BA203D690600073E80 /* VehicleView.swift in Sources */,
 				5346E109202D6F0C00E08AF4 /* AppDelegate.swift in Sources */,
 				53627292203A6EB800252693 /* HudModel.swift in Sources */,
 				53BF6567203B920000397809 /* Vehicle.swift in Sources */,

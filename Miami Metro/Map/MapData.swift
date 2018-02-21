@@ -12,6 +12,8 @@ import SwiftyJSON
 import UIColor_Hex_Swift
 import RxSwift
 import RxCocoa
+import PromiseKit
+import CoreLocation
 
 class MapData: NSObject {
     static let shared = MapData()
@@ -30,6 +32,10 @@ class MapData: NSObject {
     weak var delegate: AnnotationDelegate? {
         didSet {
             refreshingPositions.value = true
+            CLLocationManager
+                .promise(.whenInUse)
+                .then { location -> Void in }
+                .catch { print($0.localizedDescription) }
         }
     }
     

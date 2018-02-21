@@ -32,7 +32,7 @@ struct Route {
         switch self.kind {
         case .gables, .mover, .rail:
             let colors: [String:UIColor] = json["colors"].dictionaryValue.mapValues { UIColor($0.stringValue) }
-            self.color = UIColor.black
+            self.color = colors.reversed().first?.value
             self.colors = colors
             self.lines = json["poly"].dictionaryValue.map { key, json -> Line in
                 let color = colors[key]!
@@ -49,11 +49,7 @@ struct Route {
         }
         
         self.stops = json["stops"].arrayValue.map { json -> Stop in
-            let name = json["name"].stringValue
-            let lat = json["lat"].doubleValue
-            let lng = json["lng"].doubleValue
-            let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
-            return Stop(coordinate, id: json["id"].stringValue, name: name, color: color, kind: kind, route: id)
+            return Stop(json, color: color, kind: kind, route: id)
         }
     }
 }
