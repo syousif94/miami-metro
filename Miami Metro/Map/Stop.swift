@@ -27,14 +27,14 @@ class Stop: NSObject, MKAnnotation {
     }
 }
 
-class StopAnnotation: MKAnnotationView {
+class StopView: MKAnnotationView {
     
-    static let minDelta: CGFloat = 0.005
+    static let minDelta: CGFloat = 0.009
     static let maxDelta: CGFloat = 0.04
     static let delta: CGFloat = maxDelta - minDelta
     
     static let minDiameter: CGFloat = 6
-    static let maxDiameter: CGFloat = 26
+    static let maxDiameter: CGFloat = 30
     static let span: CGFloat = maxDiameter - minDiameter
     
     static let minSize = CGSize(width: minDiameter, height: minDiameter)
@@ -50,7 +50,7 @@ class StopAnnotation: MKAnnotationView {
             }
             return nil
         }
-        let diameter: CGFloat = minDiameter + (span * (maxDelta - delta) / StopAnnotation.delta)
+        let diameter: CGFloat = minDiameter + (span * (maxDelta - delta) / StopView.delta)
         return CGSize(width: diameter, height: diameter)
     }
     
@@ -60,38 +60,82 @@ class StopAnnotation: MKAnnotationView {
         let radius = diameter / 2
         
         let firstAnnotation = mapView.annotations.first { annotation -> Bool in
-            return mapView.view(for: annotation) is StopAnnotation
+            return mapView.view(for: annotation) is StopView
         }
         if firstAnnotation == nil { return }
         if mapView.view(for: firstAnnotation!)!.frame.size.height == diameter { return }
         let stops = mapView.annotations.map { mapView.view(for: $0) }
         for view in stops {
-            if let view = view as? StopAnnotation {
+            if let view = view as? StopView {
                 view.frame.size = size
                 view.layer.cornerRadius = radius
+                if diameter < 22 {
+                    view.idLabel.isHidden = true
+                }
+                else {
+                    view.idLabel.pin.center()
+                    if view.idLabel.isHidden {
+                        view.idLabel.isHidden = false
+                    }
+                }
             }
         }
     }
     
-    static func size(_ annotation: StopAnnotation, for mapView: MKMapView) {
+    static func size(_ view: StopView, for mapView: MKMapView) {
         guard let size = size(for: mapView, initial: true) else { return }
         let diameter = size.height
         let radius = diameter / 2
         
-        annotation.frame.size = size
-        annotation.layer.cornerRadius = radius
-        annotation.bounds = annotation.frame
+        view.frame.size = size
+        view.layer.cornerRadius = radius
+        view.bounds = view.frame
+        
+        view.idLabel.isHidden = diameter < 22
+        
+        view.idLabel.pin.size(view.idLabel.frame.size).center()
+    }
+    
+    lazy var stop: Stop = {
+        return self.annotation as! Stop
+    }()
+    
+    let idLabel = UILabel()
+    
+    // let arrivalLabel = UILabel()
+    
+    func configureIdLabel() {
+        addSubview(idLabel)
+        
+        idLabel.font = UIFont.systemFont(ofSize: 8, weight: UIFont.Weight.semibold)
+        
+        idLabel.text = stop.kind == .trolley ? nil : stop.id
+        idLabel.sizeToFit()
+        
+        idLabel.textColor = UIColor.black
+    }
+    
+    func configureViews() {
+        // shows number or id of stop
+        self.configureIdLabel()
+        
+        // shows next arrival eta in seconds
+        // addSubview(arrivalLabel)
     }
     
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
+        
         guard let annotation = annotation as? Stop else { return }
+        
         self.backgroundColor = UIColor.white
         self.layer.borderWidth = 1
         self.layer.borderColor = annotation.color.cgColor
         self.isOpaque = false
         self.layer.zPosition = 0.1
         self.centerOffset = CGPoint(x: 0, y: 0)
+        
+        self.configureViews()
     }
     
     required init?(coder aDecoder: NSCoder) {

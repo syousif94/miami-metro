@@ -15,7 +15,9 @@ struct Route {
     let id: String
     let name: String
     let lines: [Line]
-    let color: UIColor
+    
+    var color: UIColor!
+    var colors: [String:UIColor]!
     var stops: [Stop]!
     
     init(_ json: JSON) {
@@ -29,9 +31,9 @@ struct Route {
         var id: String!
         switch self.kind {
         case .gables, .mover, .rail:
-            let color = UIColor.black
-            self.color = color
             let colors: [String:UIColor] = json["colors"].dictionaryValue.mapValues { UIColor($0.stringValue) }
+            self.color = UIColor.black
+            self.colors = colors
             self.lines = json["poly"].dictionaryValue.map { key, json -> Line in
                 let color = colors[key]!
                 return Line.create(encodedPolyline: json.stringValue, color: color)

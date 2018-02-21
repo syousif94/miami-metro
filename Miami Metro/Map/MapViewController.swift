@@ -11,7 +11,7 @@ import MapKit
 import PinLayout
 import RxSwift
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, AnnotationDelegate {
     let mapView = MKMapView()
     var displayLink: CADisplayLink?
     
@@ -24,6 +24,8 @@ class MapViewController: UIViewController {
         addControllers()
         addViews()
         setupViews()
+        
+        MapData.shared.delegate = self
     }
     
     func addControllers() {
@@ -40,6 +42,7 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         mapView.isRotateEnabled = false
         mapView.isPitchEnabled = false
+        mapView.showsUserLocation = true
         
         let top = UIScreen.insets.top + 5
         let height: CGFloat = 100
@@ -88,7 +91,8 @@ class MapViewController: UIViewController {
     }
     
     @objc func updateRegion() {
-        StopAnnotation.resize(for: mapView)
+        StopView.resize(for: mapView)
+        VehicleView.resize(for: mapView)
     }
 }
 
@@ -105,16 +109,22 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        if annotation is MKUserLocation {
-            return nil
+
+        if annotation is Stop {
+            let view = StopView(annotation: annotation, reuseIdentifier: "stop")
+            StopView.size(view, for: mapView)
+            view.layoutIfNeeded()
+            return view
         }
         
-        let annotation = StopAnnotation(annotation: annotation, reuseIdentifier: "stop")
-        StopAnnotation.size(annotation, for: mapView)
-        annotation.layoutIfNeeded()
-        return annotation
+        if annotation is Vehicle {
+            let view = VehicleView(annotation: annotation, reuseIdentifier: "vehicle")
+            VehicleView.size(view, for: mapView)
+            view.layoutIfNeeded()
+            return view
+        }
         
+        return nil
     }
     
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
