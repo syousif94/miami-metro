@@ -136,6 +136,8 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AlamofireSwiftyJSON/AlamofireSwiftyJSON.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework"
@@ -143,10 +145,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/UIColor_Hex_Swift/UIColor_Hex_Swift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AlamofireSwiftyJSON/AlamofireSwiftyJSON.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework"
@@ -154,6 +160,8 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/UIColor_Hex_Swift/UIColor_Hex_Swift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

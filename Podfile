@@ -13,5 +13,9 @@ target 'Miami Metro' do
   pod 'PromiseKit'
   pod 'PromiseKit/CoreLocation'
   pod 'UIColor_Hex_Swift'
+  
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 
 end

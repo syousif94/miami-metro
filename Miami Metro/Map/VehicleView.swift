@@ -91,16 +91,13 @@ class VehicleView: MKAnnotationView {
         self.configureDirectionLabel()
         
         switch vehicle.kind {
-        case .rail:
+        case .rail, .mover:
             if let route = MapData.routes[vehicle.kind.rawValue],
                 let color = route.colors[vehicle.route] {
                 self.backgroundColor = color
             }
-            else {
-                self.backgroundColor = UIColor.lightGray
-            }
         default:
-            break
+            self.backgroundColor = UIColor.lightGray
         }
         
         self.isOpaque = false
