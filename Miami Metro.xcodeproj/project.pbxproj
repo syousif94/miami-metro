@@ -10,6 +10,8 @@
 		5303018B203927C000808004 /* map.json in Resources */ = {isa = PBXBuildFile; fileRef = 5303018A203927C000808004 /* map.json */; };
 		5303018D20392A4900808004 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5303018C20392A4900808004 /* Line.swift */; };
 		5303018F20392A7000808004 /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5303018E20392A7000808004 /* Stop.swift */; };
+		530673CB2043B17D00DDF12D /* Arrival.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530673CA2043B17D00DDF12D /* Arrival.swift */; };
+		530673CD2044E95200DDF12D /* ArrivalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530673CC2044E95200DDF12D /* ArrivalsView.swift */; };
 		5346E109202D6F0C00E08AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5346E108202D6F0C00E08AF4 /* AppDelegate.swift */; };
 		5346E110202D6F0C00E08AF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5346E10F202D6F0C00E08AF4 /* Assets.xcassets */; };
 		5346E113202D6F0C00E08AF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5346E111202D6F0C00E08AF4 /* LaunchScreen.storyboard */; };
@@ -33,6 +35,8 @@
 		5303018A203927C000808004 /* map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = map.json; sourceTree = "<group>"; };
 		5303018C20392A4900808004 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		5303018E20392A7000808004 /* Stop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
+		530673CA2043B17D00DDF12D /* Arrival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrival.swift; sourceTree = "<group>"; };
+		530673CC2044E95200DDF12D /* ArrivalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalsView.swift; sourceTree = "<group>"; };
 		5346E105202D6F0C00E08AF4 /* Miami Metro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Miami Metro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5346E108202D6F0C00E08AF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5346E10F202D6F0C00E08AF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 			children = (
 				53627291203A6EB800252693 /* HudModel.swift */,
 				53627293203A6F1700252693 /* StopViewController.swift */,
+				530673CC2044E95200DDF12D /* ArrivalsView.swift */,
+				530673CA2043B17D00DDF12D /* Arrival.swift */,
 			);
 			path = Hud;
 			sourceTree = "<group>";
@@ -295,11 +301,13 @@
 				5394B13E203909F900E70EBB /* MapViewController.swift in Sources */,
 				5303018D20392A4900808004 /* Line.swift in Sources */,
 				5303018F20392A7000808004 /* Stop.swift in Sources */,
+				530673CB2043B17D00DDF12D /* Arrival.swift in Sources */,
 				535839B8203D684F00073E80 /* StopView.swift in Sources */,
 				5394B14020390B7900E70EBB /* MapData.swift in Sources */,
 				53627294203A6F1700252693 /* StopViewController.swift in Sources */,
 				535839BA203D690600073E80 /* VehicleView.swift in Sources */,
 				5346E109202D6F0C00E08AF4 /* AppDelegate.swift in Sources */,
+				530673CD2044E95200DDF12D /* ArrivalsView.swift in Sources */,
 				53627292203A6EB800252693 /* HudModel.swift in Sources */,
 				53BF6567203B920000397809 /* Vehicle.swift in Sources */,
 				53627296203A7DBD00252693 /* UIScreen.swift in Sources */,

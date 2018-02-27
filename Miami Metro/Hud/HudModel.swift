@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import SwiftyJSON
 import RxCocoa
+import Firebase
 
 class HudModel: NSObject {
     static let shared = HudModel()
@@ -17,26 +18,49 @@ class HudModel: NSObject {
 
     let selectedStop = Variable<Stop?>(nil)
     
+    let arrivals = Variable<[String: [Arrival]]?>(nil)
+    
+    var ref: DatabaseReference?
+    
     override init() {
         super.init()
         
         selectedStop.asObservable()
-            .flatMapLatest { stop -> Observable<Stop> in
-                return stop?.kind == .rail
-                    ? Observable.merge(
-                        Observable.of(stop!),
-                        Observable<Int>.interval(1, scheduler: MainScheduler.instance).map { _ in stop! }
-                    ) : .empty()
-            }
-            .flatMap { stop -> Observable<Data> in
-                let base = "https://d0c45bdf.ngrok.io"
-                let url = URL(string: "\(base)/arrivals/\(stop.kind.rawValue)/\(stop.id)")!
-                let req = URLRequest(url: url)
-                return URLSession.shared.rx.data(request: req)
-            }
-            .subscribe(onNext: { data in
-                guard let json = try? JSON(data: data) else { return }
-                print(json)
+            .subscribe(onNext: { [unowned self] stop in
+                if let ref = self.ref {
+                    ref.removeAllObservers()
+                    self.ref = nil
+                }
+                
+                if let stop = stop,
+                    stop.kind == .rail || stop.kind == .mover {
+                    self.ref = Database.database().reference().child("/arrivals/\(stop.kind)/\(stop.id)")
+                    self.ref?.observe(.value) { snapshot in
+                        
+                        let arrivals: [String: [Arrival]] = snapshot
+                            .children
+                            .reduce([:]) { result, direction in
+                                let snapshot = direction as! DataSnapshot
+                                
+                                if snapshot.key == "id" { return result }
+                                var next = result
+                                
+                                let arrivals: [Arrival] = snapshot
+                                    .children
+                                    .reduce([]) { result, arrival in
+                                        guard let arrival = Arrival(arrival as! DataSnapshot) else { return result }
+                                        var next = result
+                                        next.append(arrival)
+                                        return next
+                                    }
+                                next["\(snapshot.key)"] = arrivals.sorted { $0.date > $1.date}
+                                return next
+                        }
+                        
+                        self.arrivals.value = arrivals
+                        
+                    }
+                }
             })
             .disposed(by: bag)
     }

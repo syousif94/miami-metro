@@ -43,6 +43,8 @@ class StopViewController: UIViewController {
         stopLabel.pin.topLeft(to: routeLabel.anchor.bottomLeft).marginTop(5)
     }
     
+    var arrivalsView: ArrivalsView?
+    
     func refresh(stop: Stop?) {
         
         guard let stop = stop,
@@ -57,6 +59,22 @@ class StopViewController: UIViewController {
         stopLabel.sizeToFit()
         
         self.view.layoutIfNeeded()
+        
+        HudModel.shared.arrivals.asObservable().subscribe(onNext: { arrivals in
+            
+            if let view = self.arrivalsView {
+                view.removeFromSuperview()
+            }
+            
+            if let arrivals = arrivals {
+                self.arrivalsView = ArrivalsView(arrivals)
+                
+                self.view.addSubview(self.arrivalsView!)
+                
+                self.arrivalsView?.pin.bottom().left().right().top()
+            }
+            
+        }).disposed(by: bag)
     }
 }
 

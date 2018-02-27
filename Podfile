@@ -10,6 +10,7 @@ target 'Miami Metro' do
   pod 'AlamofireSwiftyJSON'
   pod 'SwiftyJSON'
   pod 'PinLayout'
+  pod 'FlexLayout'
   pod 'PromiseKit'
   pod 'PromiseKit/CoreLocation'
   pod 'UIColor_Hex_Swift'

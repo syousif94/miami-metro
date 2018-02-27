@@ -51,9 +51,6 @@ class MapData: NSObject {
             
             var next: [String: Vehicle] = [:]
             
-            print("hi")
-
-            
             let rail = snapshot.childSnapshot(forPath: "rail")
             
             rail.children.forEach { child in
@@ -102,47 +99,6 @@ class MapData: NSObject {
             
             self.positions = next
         }
-        
-//        refreshingPositions.asObservable()
-//            .flatMap {  isRunning -> Observable<Int> in
-//                isRunning ?
-//                    Observable.merge(
-//                        Observable.of(0),
-//                        Observable<Int>.interval(1, scheduler: MainScheduler.instance)
-//                    ) : .empty()
-//            }
-//            .flatMap { int -> Observable<Data> in
-//                let base = "https://d0c45bdf.ngrok.io"
-//                let url = URL(string: "\(base)/positions")!
-//                let req = URLRequest(url: url)
-//                return URLSession.shared.rx.data(request: req)
-//            }
-//            .subscribe(onNext: { [unowned self] data in
-//                guard let json = try? JSON(data: data) else { return }
-//
-//                var next: [String: Vehicle] = [:]
-//
-//                json.arrayValue.forEach { [unowned self] json in
-//                    let id = json["id"].stringValue
-//                    let kind = json["kind"].stringValue
-//                    let key = "\(kind)\(id)"
-//                    if let previous = self.positions.removeValue(forKey: key) {
-//                        previous.update(json)
-//                        next[key] = previous
-//                    }
-//                    else {
-//                        let vehicle = Vehicle(json)
-//                        vehicle.delegate = self.delegate
-//                        DispatchQueue.main.async {
-//                            vehicle.delegate?.mapView.addAnnotation(vehicle)
-//                        }
-//                        next[vehicle.key] = vehicle
-//                    }
-//                }
-//
-
-//            })
-//            .disposed(by: bag)
     }
     
     static func loadRoutes() -> [String:Route] {
