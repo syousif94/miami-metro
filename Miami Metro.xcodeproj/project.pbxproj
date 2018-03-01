@@ -23,6 +23,7 @@
 		53627298203AA09A00252693 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53627297203AA09A00252693 /* Route.swift */; };
 		5394B13E203909F900E70EBB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394B13D203909F900E70EBB /* MapViewController.swift */; };
 		5394B14020390B7900E70EBB /* MapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394B13F20390B7900E70EBB /* MapData.swift */; };
+		5396873A20478A9F00C56F3A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5396873920478A9F00C56F3A /* String.swift */; };
 		53A369D72043738F00BB6C7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53A369D62043738F00BB6C7C /* GoogleService-Info.plist */; };
 		53BF6567203B920000397809 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF6566203B920000397809 /* Vehicle.swift */; };
 		E26201D1402AF3DFFD7F215C /* Pods_Miami_Metro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8D8B856501CA3051D4578 /* Pods_Miami_Metro.framework */; };
@@ -50,6 +51,7 @@
 		53627297203AA09A00252693 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		5394B13D203909F900E70EBB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5394B13F20390B7900E70EBB /* MapData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapData.swift; sourceTree = "<group>"; };
+		5396873920478A9F00C56F3A /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		53A369D62043738F00BB6C7C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		53BF6566203B920000397809 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +108,7 @@
 			children = (
 				5346E108202D6F0C00E08AF4 /* AppDelegate.swift */,
 				53627295203A7DBD00252693 /* UIScreen.swift */,
+				5396873920478A9F00C56F3A /* String.swift */,
 				53627290203A6E4B00252693 /* Hud */,
 				5394B13C2039098300E70EBB /* Map */,
 				5346E10F202D6F0C00E08AF4 /* Assets.xcassets */,
@@ -224,6 +227,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Miami Metro/Pods-Miami Metro-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireSwiftyJSON/AlamofireSwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/FlexLayout/FlexLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework",
@@ -240,6 +244,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireSwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlexLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinLayout.framework",
@@ -309,6 +314,7 @@
 				5346E109202D6F0C00E08AF4 /* AppDelegate.swift in Sources */,
 				530673CD2044E95200DDF12D /* ArrivalsView.swift in Sources */,
 				53627292203A6EB800252693 /* HudModel.swift in Sources */,
+				5396873A20478A9F00C56F3A /* String.swift in Sources */,
 				53BF6567203B920000397809 /* Vehicle.swift in Sources */,
 				53627296203A7DBD00252693 /* UIScreen.swift in Sources */,
 			);

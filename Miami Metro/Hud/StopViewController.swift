@@ -10,6 +10,8 @@ import UIKit
 import RxSwift
 
 class StopViewController: UIViewController {
+    static let height: CGFloat = 140
+    
     let bag = DisposeBag()
     
     let routeLabel = UILabel()
@@ -38,9 +40,15 @@ class StopViewController: UIViewController {
     }
     
     func setupLabels() {
+        routeLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.bold)
+        routeLabel.textColor = UIColor("#979797")
+        
         routeLabel.pin.top(12).left(18).height(routeLabel.font.lineHeight)
         
-        stopLabel.pin.topLeft(to: routeLabel.anchor.bottomLeft).marginTop(5)
+        stopLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.medium)
+        stopLabel.textColor = UIColor.black
+        
+        stopLabel.pin.topLeft(to: routeLabel.anchor.bottomLeft).height(stopLabel.font.lineHeight).marginTop(2)
     }
     
     var arrivalsView: ArrivalsView?
@@ -50,7 +58,12 @@ class StopViewController: UIViewController {
         guard let stop = stop,
             let id = stop.route,
             let route = MapData.routes[id]
-            else { return }
+            else {
+                if let view = self.arrivalsView {
+                    view.removeFromSuperview()
+                }
+                return
+        }
         
         routeLabel.text = route.name
         routeLabel.sizeToFit()
@@ -60,7 +73,7 @@ class StopViewController: UIViewController {
         
         self.view.layoutIfNeeded()
         
-        HudModel.shared.arrivals.asObservable().subscribe(onNext: { arrivals in
+        HudModel.shared.arrivals.asObservable().subscribe(onNext: { [unowned self] arrivals in
             
             if let view = self.arrivalsView {
                 view.removeFromSuperview()
@@ -71,7 +84,9 @@ class StopViewController: UIViewController {
                 
                 self.view.addSubview(self.arrivalsView!)
                 
-                self.arrivalsView?.pin.bottom().left().right().top()
+                self.arrivalsView?.pin.topLeft(to: self.stopLabel.anchor.bottomLeft).bottomRight()
+                
+                self.arrivalsView?.flex.layout()
             }
             
         }).disposed(by: bag)

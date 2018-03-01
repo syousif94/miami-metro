@@ -61,15 +61,6 @@ class StopView: MKAnnotationView {
                 view.frame.size = size
                 view.layer.cornerRadius = radius
                 view.idLabel.pin.center()
-//                if diameter < 22 {
-//                    view.idLabel.isHidden = true
-//                }
-//                else {
-//
-//                    if view.idLabel.isHidden {
-//                        view.idLabel.isHidden = false
-//                    }
-//                }
             }
         }
     }
@@ -84,8 +75,6 @@ class StopView: MKAnnotationView {
         view.layer.cornerRadius = radius
         view.bounds = view.frame
         
-//        view.idLabel.isHidden = diameter < 22
-        
         view.idLabel.pin.size(view.idLabel.frame.size).center()
     }
     
@@ -94,8 +83,6 @@ class StopView: MKAnnotationView {
     }()
     
     let idLabel = UILabel()
-    
-    // let arrivalLabel = UILabel()
     
     func configureIdLabel() {
         addSubview(idLabel)
@@ -118,11 +105,7 @@ class StopView: MKAnnotationView {
     }
     
     func configureViews() {
-        // shows number or id of stop
         self.configureIdLabel()
-        
-        // shows next arrival eta in seconds
-        // addSubview(arrivalLabel)
     }
     
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {

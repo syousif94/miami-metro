@@ -49,11 +49,10 @@ class MapViewController: UIViewController, AnnotationDelegate {
         mapView.showsUserLocation = true
         
         let top = UIScreen.insets.top + 5
-        let height: CGFloat = 100
         
-        let translateY = -(top + height)
+        let translateY = -(top + StopViewController.height)
         
-        stopViewController.view.pin.horizontally(15).top(top).height(100)
+        stopViewController.view.pin.horizontally(15).top(top).height(StopViewController.height)
         stopViewController.view.transform = CGAffineTransform(translationX: 0, y: translateY)
         
         HudModel.shared.selectedStop.asObservable()
@@ -90,7 +89,7 @@ class MapViewController: UIViewController, AnnotationDelegate {
                 mapView.add(line)
             }
             
-            mapView.addAnnotations(route.stops)
+            route.stops.values.forEach { mapView.addAnnotation($0) }
         }
     }
     

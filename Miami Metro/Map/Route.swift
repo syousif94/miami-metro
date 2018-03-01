@@ -13,12 +13,13 @@ import MapKit
 struct Route {
     let kind: Route.Kind
     let id: String
+    let ids: [String]?
     let name: String
     let lines: [Line]
     
     var color: UIColor!
     var colors: [String:UIColor]!
-    var stops: [Stop]!
+    var stops: [String:Stop]!
     
     init(_ json: JSON) {
         let type = json["type"].stringValue
@@ -40,16 +41,21 @@ struct Route {
             }
             id = type
             self.id = id
+            self.ids = json["ids"].arrayValue.map { $0.stringValue }
         case .trolley:
             self.color = UIColor(json["color"].stringValue)
             let line = Line.create(encodedPolyline: json["poly"].stringValue, color: self.color)
             self.lines = [line]
             id = json["id"].stringValue
             self.id = id
+            self.ids = nil
         }
         
-        self.stops = json["stops"].arrayValue.map { json -> Stop in
-            return Stop(json, color: color, kind: kind, route: id)
+        self.stops = json["stops"].arrayValue.reduce([:]) { previous, json in
+            let stop = Stop(json, color: color, kind: kind, route: id)
+            var next = previous
+            next![stop.id] = stop
+            return next
         }
     }
 }

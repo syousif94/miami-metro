@@ -53,7 +53,7 @@ class HudModel: NSObject {
                                         next.append(arrival)
                                         return next
                                     }
-                                next["\(snapshot.key)"] = arrivals.sorted { $0.date > $1.date}
+                                next["\(snapshot.key)"] = arrivals.sorted { $0.date < $1.date}
                                 return next
                         }
                         
