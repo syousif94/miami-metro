@@ -22,66 +22,18 @@ class ArrivalsView: UIView {
         self.arrivals = arrivals
         super.init(frame: .zero)
         
-        self.flex.direction(.row).define { flex in
-            guard let kind = HudModel.shared.selectedStop.value?.kind else { return }
-            switch kind {
-            case .rail:
-                layoutRail()
-            default:
-                break
-            }
+        guard let kind = HudModel.shared.selectedStop.value?.kind else { return }
+        switch kind {
+        case .rail:
+            setupRail()
+        case .mover:
+            setupMover()
+        default:
+            break
         }
     }
     
-    func layoutRail() {
-        let ids = [("NB", "Northbound"), ("SB", "Southbound")]
-        for id in ids {
-            if let value = arrivals[id.0] {
-                flex.addItem()
-                    .direction(.column)
-                    .marginTop(10)
-                    .marginBottom(12)
-                    .justifyContent(.spaceBetween)
-                    .grow(1)
-                    .define { flex in
-                        
-                        let label = UILabel()
-                        label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.medium)
-                        label.text = id.1
-                        label.sizeToFit()
-                        
-                        flex.addItem(label)
-                        
-                        value.enumerated().forEach { index, arrival in
-                           
-                            flex.addItem()
-                                .direction(.row)
-                                .justifyContent(.spaceBetween)
-                                .define { flex in
-                                    
-                                    let label = UILabel()
-                                    label.font = UIFont.systemFont(ofSize: 12)
-                                    label.text = self.createTime(from: arrival.date)
-                                    label.sizeToFit()
-                                    
-                                    flex.addItem(label)
-                                    
-                                    let etaLabel = UILabel()
-                                    etaLabel.font = UIFont.systemFont(ofSize: 12)
-                                    etaLabel.textColor = UIColor("#979797")
-                                    etaLabel.text = createETA(from: arrival.date)
-                                    etaLabel.sizeToFit()
-                                    etaLabel.textAlignment = .right
-                                    
-                                    flex.addItem(etaLabel).marginRight(20).grow(1)
-                                    
-                                    etas.append(etaLabel)
-                            }
-                        }
-                }
-            }
-        }
-        
+    func startTimer(ids: [(String, String)]) {
         Observable<Int>.interval(1, scheduler: MainScheduler.instance).subscribe(onNext: { [unowned self] time in
             var index = 0
             for id in ids {

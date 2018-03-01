@@ -9,5 +9,5 @@
 import UIKit
 
 extension UIScreen {
-    static var insets: UIEdgeInsets = UIEdgeInsets.zero
+    static var insets: UIEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
 }

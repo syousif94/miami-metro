@@ -14,7 +14,10 @@ struct Route {
     let kind: Route.Kind
     let id: String
     let ids: [String]?
+    
     let name: String
+    let names: [String]?
+    
     let lines: [Line]
     
     var color: UIColor!
@@ -41,15 +44,17 @@ struct Route {
             }
             id = type
             self.id = id
-            self.ids = json["ids"].arrayValue.map { $0.stringValue }
         case .trolley:
             self.color = UIColor(json["color"].stringValue)
             let line = Line.create(encodedPolyline: json["poly"].stringValue, color: self.color)
             self.lines = [line]
             id = json["id"].stringValue
             self.id = id
-            self.ids = nil
         }
+        
+        self.ids = json["ids"].array?.map { $0.stringValue }
+        
+        self.names = json["names"].array?.map { $0.stringValue }
         
         self.stops = json["stops"].arrayValue.reduce([:]) { previous, json in
             let stop = Stop(json, color: color, kind: kind, route: id)

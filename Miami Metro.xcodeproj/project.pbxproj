@@ -24,6 +24,8 @@
 		5394B13E203909F900E70EBB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394B13D203909F900E70EBB /* MapViewController.swift */; };
 		5394B14020390B7900E70EBB /* MapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394B13F20390B7900E70EBB /* MapData.swift */; };
 		5396873A20478A9F00C56F3A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5396873920478A9F00C56F3A /* String.swift */; };
+		5396873C2047BC5B00C56F3A /* ArrivalsView+Rail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5396873B2047BC5B00C56F3A /* ArrivalsView+Rail.swift */; };
+		5396873E2047BCA200C56F3A /* ArrivalsView+Mover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5396873D2047BCA200C56F3A /* ArrivalsView+Mover.swift */; };
 		53A369D72043738F00BB6C7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53A369D62043738F00BB6C7C /* GoogleService-Info.plist */; };
 		53BF6567203B920000397809 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BF6566203B920000397809 /* Vehicle.swift */; };
 		E26201D1402AF3DFFD7F215C /* Pods_Miami_Metro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8D8B856501CA3051D4578 /* Pods_Miami_Metro.framework */; };
@@ -52,6 +54,8 @@
 		5394B13D203909F900E70EBB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5394B13F20390B7900E70EBB /* MapData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapData.swift; sourceTree = "<group>"; };
 		5396873920478A9F00C56F3A /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		5396873B2047BC5B00C56F3A /* ArrivalsView+Rail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArrivalsView+Rail.swift"; sourceTree = "<group>"; };
+		5396873D2047BCA200C56F3A /* ArrivalsView+Mover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArrivalsView+Mover.swift"; sourceTree = "<group>"; };
 		53A369D62043738F00BB6C7C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		53BF6566203B920000397809 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +129,8 @@
 				53627291203A6EB800252693 /* HudModel.swift */,
 				53627293203A6F1700252693 /* StopViewController.swift */,
 				530673CC2044E95200DDF12D /* ArrivalsView.swift */,
+				5396873D2047BCA200C56F3A /* ArrivalsView+Mover.swift */,
+				5396873B2047BC5B00C56F3A /* ArrivalsView+Rail.swift */,
 				530673CA2043B17D00DDF12D /* Arrival.swift */,
 			);
 			path = Hud;
@@ -306,6 +312,7 @@
 				5394B13E203909F900E70EBB /* MapViewController.swift in Sources */,
 				5303018D20392A4900808004 /* Line.swift in Sources */,
 				5303018F20392A7000808004 /* Stop.swift in Sources */,
+				5396873C2047BC5B00C56F3A /* ArrivalsView+Rail.swift in Sources */,
 				530673CB2043B17D00DDF12D /* Arrival.swift in Sources */,
 				535839B8203D684F00073E80 /* StopView.swift in Sources */,
 				5394B14020390B7900E70EBB /* MapData.swift in Sources */,
@@ -316,6 +323,7 @@
 				53627292203A6EB800252693 /* HudModel.swift in Sources */,
 				5396873A20478A9F00C56F3A /* String.swift in Sources */,
 				53BF6567203B920000397809 /* Vehicle.swift in Sources */,
+				5396873E2047BCA200C56F3A /* ArrivalsView+Mover.swift in Sources */,
 				53627296203A7DBD00252693 /* UIScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

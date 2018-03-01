@@ -25,13 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = mapViewController
         
-        if #available(iOS 11.0, *) {
-            UIScreen.insets = window?.safeAreaInsets ?? UIEdgeInsets.zero
-        }
-        else {
-            let rootController = window?.rootViewController
-            let top = rootController?.topLayoutGuide.length ?? 0
-            UIScreen.insets = UIEdgeInsets(top: top, left: 0, bottom: 0, right: 0)
+        if #available(iOS 11.0, *),
+            let insets = window?.safeAreaInsets {
+            UIScreen.insets =  insets
         }
         
         window?.makeKeyAndVisible()
